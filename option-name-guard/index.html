@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>PAL Option Name Guard — Shopify review billing resolution</title>
+<style>:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172438;background:#f5f7fb}body{margin:0}main{max-width:940px;padding:40px 24px;margin:auto;line-height:1.6}.label{color:#146f73;text-transform:uppercase;letter-spacing:.09em;font-weight:700;font-size:13px}h1{font-size:clamp(28px,5vw,42px);line-height:1.2}h2{font-size:23px;margin:34px 0 12px}.card{background:white;border:1px solid #d8e2e9;border-radius:16px;padding:24px;margin:22px 0}li{margin:8px 0}img{display:block;max-width:100%;height:auto;border-radius:12px;border:1px solid #dbe1e7}table{border-collapse:collapse;width:100%}th,td{padding:10px;border-bottom:1px solid #e1e7ed;text-align:left}th{background:#edf3f6}small,footer{color:#59697c}a{color:#075ba9}</style>
+</head><body><main><p class="label">Shopify App Store · Requirement 1.2.1 resolution evidence</p>
+<h1>PAL Option Name Guard</h1><p>Verified November 6, 2026 in an authenticated Shopify development store.</p>
+<section class="card"><h2>Billing issue resolved</h2>
+<p>Shopify previously reported that the merchant could not select a subscription before running the catalog audit. The embedded app now provides a <strong>Choose or manage Shopify plan</strong> action when no plan is active. This action opens the app's own <strong>Shopify-hosted App Pricing</strong> page.</p>
+<p><strong>Shopify App Pricing is enabled</strong> in the Partner Dashboard. The Standard public plan is <strong>USD $5.99 every 30 days</strong> with a <strong>7-day free trial</strong>. Plan selection and approval use Shopify, not an external payment processor.</p>
+<p>The app's billing-status endpoint checks the authenticated merchant's Shopify subscription state. The catalog audit is enabled only for an active subscription.</p></section>
+<h2>Real development-store verification</h2>
+<table><tr><th>Check</th><th>Observed result</th></tr>
+<tr><td>Plan activation</td><td>Shopify's development-store test subscription was approved at effective USD $0. No actual charge was made.</td></tr>
+<tr><td>Subscription check</td><td>Embedded app displayed <strong>Subscription: active</strong>; <code>/api/billing-status</code> returned HTTP 200.</td></tr>
+<tr><td>Core feature</td><td>Read-only product-option audit succeeded: <strong>17 products reviewed, 0 potential issues</strong>. <code>/api/scan</code> returned HTTP 200.</td></tr>
+<tr><td>Merchant data</td><td>Audit is read-only and does not change products or product options.</td></tr></table>
+<h2>Actual Shopify embedded-app screenshot</h2>
+<figure><img src="./devstore-audit.png" width="1680" alt="PAL Option Name Guard shows Subscription active and results of reviewing 17 products in a Shopify development store"><figcaption><small>Captured inside the authenticated embedded app. Personal account information and Shopify Admin navigation are excluded.</small></figcaption></figure>
+<h2>How the reviewer can reproduce</h2><ol>
+<li>Install PAL Option Name Guard in an authorized development store and launch it inside Shopify Admin.</li>
+<li>Without a subscription, select the app's Shopify plan action and open Shopify's pricing page. The exact Shopify app handle is <code>pal-option-name-guard</code>.</li>
+<li>Select Standard, approve the subscription on Shopify's secure page, and return to the app. Shopify development stores can perform a USD $0 test subscription.</li>
+<li>Verify <strong>Subscription: active</strong>; choose <strong>Review catalog batch</strong>; inspect findings and optionally export CSV.</li>
+</ol><p>These are verified development-store results, not a claim of live paid billing, Shopify approval, or publication.</p>
+<p><a href="https://pal-option-name-canary.pages.dev/app">Embedded app</a> · <a href="https://pal-option-name-canary.pages.dev/privacy">Privacy</a> · <a href="https://pal-option-name-canary.pages.dev/support">Support</a></p>
+<footer>Practical AI Lab · Reviewer evidence only · November 6, 2026</footer>
+</main></body></html>
