@@ -1,0 +1,17 @@
+{
+  "source": "verified existing Shopify demo videos",
+  "videos": [
+    {
+      "slug": "pal-collection-sort-guard",
+      "url_path": "/collection-sort-guard.mp4",
+      "sha256": "3613fdbc5470937a570e0d89e8093442d4e4366727982c3c5804df3090e2affd",
+      "bytes": 1144051
+    },
+    {
+      "slug": "pal-collection-image-ratio-guard",
+      "url_path": "/collection-ratio-guard.mp4",
+      "sha256": "e39129d8683e8b72b5d830d30fc56132c26a6a8f051e578ae56eda85a649ce31",
+      "bytes": 1095904
+    }
+  ]
+}
